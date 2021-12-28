@@ -1,15 +1,16 @@
-import express, { Express } from "express";
-import cookieParser from "cookie-parser";
-import routes from "../router/routes";
-import invalidJSONFormatHandler from "../middleware/incorrectJSONFormatHandler";
+import express, { Express } from 'express';
+import cookieParser from 'cookie-parser';
+import routes from '../router/routes';
+import invalidJSONFormatHandler from '../middleware/incorrectJSONFormatHandler';
 
-const app:Express = express();
+const server:Express = express();
 
-app.set('view engine', 'ejs');
+server.set('view engine', 'ejs');
 
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.json({ type: 'application/json' }), invalidJSONFormatHandler);
-app.use('/', routes);
+server.use(express.urlencoded({ extended: false }));
+server.use(cookieParser());
+server.use(express.json({ type: 'application/json' }), invalidJSONFormatHandler);
+server.use(express.static('public/'));
+server.use('/', routes);
 
-export default app;
+export default server;

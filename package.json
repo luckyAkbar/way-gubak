@@ -4,7 +4,7 @@
   "main": "build/index.js",
   "scripts": {
     "start-dev-server": "nodemon ./build/index.js",
-    "watch-tsc": "tsc --watch",
+    "watch-tsc": "tsc && tsc --watch",
     "build": "tsc"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "@types/mongoose": "^5.11.97",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.2"
   },
   "devDependencies": {

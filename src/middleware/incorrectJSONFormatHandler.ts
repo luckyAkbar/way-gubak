@@ -1,5 +1,5 @@
-import assert from "assert";
-import { Request, Response, NextFunction, Errback } from "express";
+import assert from 'assert';
+import { Request, Response, NextFunction, Errback } from 'express';
 
 const incorrectJSONFormatHandler = (err: Errback, req: Request, res: Response, next: NextFunction): void => {
   try {

@@ -1,0 +1,32 @@
+{
+  "name": "pinang-jaya",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "start-dev-server": "nodemon ./build/index.js",
+    "watch-tsc": "tsc --watch",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckyAkbar/pinang-jaya.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luckyAkbar/pinang-jaya/issues"
+  },
+  "homepage": "https://github.com/luckyAkbar/pinang-jaya#readme",
+  "description": "",
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

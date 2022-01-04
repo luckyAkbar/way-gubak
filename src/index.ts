@@ -1,10 +1,17 @@
 import dotenv from 'dotenv';
-dotenv.config();
 
 import server from './app/server';
+import mongoConnect from './connection/mongoConnect';
 
-const port: number = Number(process.env.PORT);
+dotenv.config();
 
-server.listen(port, (): void => {
-  console.log(`process starting on port ${port}`);
+const port = Number(process.env.PORT);
+
+server.listen(port, async (): Promise<void> => {
+  try {
+    await mongoConnect();
+    process.stdout.write(`process starting on port ${port}\n`);
+  } catch (e: unknown) {
+    process.stdout.write('Server failed to start.\n');
+  }
 });

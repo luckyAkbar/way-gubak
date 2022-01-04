@@ -10,6 +10,10 @@ const homeController = (req: Request, res: Response): void => {
     villageYoutubeTrailerLink: process.env.VILLAGE_YOUTUBE_TRAILER_LINK,
     districtName: process.env.DISTRICT_NAME,
     copyrightYear: process.env.COPYRIGHT_YEAR,
+    provinceName: process.env.PROVINCE_NAME,
+    phoneContact: process.env.PHONE_CONTACT,
+    villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
+    postalCode: process.env.POSTAL_CODE,
   };
 
   res.status(200).render('pages/home', homepageData);

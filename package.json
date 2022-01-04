@@ -5,7 +5,8 @@
   "scripts": {
     "start-dev-server": "nodemon ./build/index.js",
     "watch-tsc": "tsc && tsc --watch",
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "lint": "npx eslint . --ext .ts"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,11 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "nodemon": "^2.0.15",
     "typescript": "^4.5.4"
   }

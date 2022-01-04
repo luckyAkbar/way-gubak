@@ -17,28 +17,28 @@ router.route('/')
     res.status(200).json({ message: req.body });
   });
 
-router.route('/agenda')
-  .get(agendaController);
-  
-router.route('/asetDesa')
-  .get(asetDesaController);
-
-router.route('/infoDemografis')
-  .get(infoDemografisController);
-
-router.route('/infoGeografis')
-  .get(infoGeografisController);
-
-router.route('/berita')
+router.route('/info')
   .get(beritaController);
+
+router.route('/info/agenda')
+  .get(agendaController);
 
 router.route('/profile')
   .get(profileController);
 
-router.route('/visiMisi')
+router.route('/profile/visiMisi')
   .get(visiMisiController);
 
-router.route('/saranaPrasarana')
+router.route('/profile/geografis')
+  .get(infoGeografisController);
+
+router.route('/profile/demografis')
+  .get(infoDemografisController);
+
+router.route('/profile/saranaPrasarana')
   .get(saranaPrasaranaController);
+
+router.route('/aset')
+  .get(asetDesaController);
 
 export default router;

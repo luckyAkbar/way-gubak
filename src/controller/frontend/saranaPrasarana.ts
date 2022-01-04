@@ -1,7 +1,8 @@
-import { Request, Response } from "express";
-import SaranaPrasarana from "../../interface/pageRenderingData/saranaPrasarana";
+import { Request, Response } from 'express';
+import BasicPage from '../../class/BasicPage';
+import SaranaPrasarana from '../../interface/pageRenderingData/saranaPrasarana';
 
-const saranaPrasaranaController = (req: Request, res: Response): void => {
+const saranaPrasaranaController = async (req: Request, res: Response): Promise<void> => {
   const saranaPrasarana: SaranaPrasarana = {
     villageName: process.env.VILLAGE_NAME,
     districtName: process.env.DISTRICT_NAME,
@@ -10,6 +11,7 @@ const saranaPrasaranaController = (req: Request, res: Response): void => {
     phoneContact: process.env.PHONE_CONTACT,
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
+    footerLinks: await BasicPage.getFooterLinks(),
   };
 
   res.render('pages/saranaPrasarana', saranaPrasarana);

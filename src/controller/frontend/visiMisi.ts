@@ -1,7 +1,8 @@
-import { Request, Response } from "express";
-import VisiMisi from "../../interface/pageRenderingData/visiMisi";
+import { Request, Response } from 'express';
+import BasicPage from '../../class/BasicPage';
+import VisiMisi from '../../interface/pageRenderingData/visiMisi';
 
-const visiMisiController = (req: Request, res: Response): void => {
+const visiMisiController = async (req: Request, res: Response): Promise<void> => {
   const visiMisi: VisiMisi = {
     villageName: process.env.VILLAGE_NAME,
     districtName: process.env.DISTRICT_NAME,
@@ -10,6 +11,7 @@ const visiMisiController = (req: Request, res: Response): void => {
     phoneContact: process.env.PHONE_CONTACT,
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
+    footerLinks: await BasicPage.getFooterLinks(),
   };
 
   res.render('pages/visiMisi', visiMisi);

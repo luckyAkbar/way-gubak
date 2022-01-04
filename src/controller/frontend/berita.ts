@@ -1,10 +1,12 @@
 import dotenv from 'dotenv';
-dotenv.config();
 
 import { Request, Response } from 'express';
+import BasicPage from '../../class/BasicPage';
 import Berita from '../../interface/pageRenderingData/berita';
 
-const beritaController = (req: Request, res: Response): void => {
+dotenv.config();
+
+const beritaController = async (req: Request, res: Response): Promise<void> => {
   const berita: Berita = {
     villageName: process.env.VILLAGE_NAME,
     districtName: process.env.DISTRICT_NAME,
@@ -13,6 +15,7 @@ const beritaController = (req: Request, res: Response): void => {
     phoneContact: process.env.PHONE_CONTACT,
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
+    footerLinks: await BasicPage.getFooterLinks(),
   };
 
   res.render('pages/berita', berita);

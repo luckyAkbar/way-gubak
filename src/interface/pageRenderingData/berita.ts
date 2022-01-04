@@ -1,7 +1,5 @@
-import BasicPageData from "./basicPageData";
+import BasicPageData from './basicPageData';
 
-interface Berita extends BasicPageData {
-
-};
+type Berita = BasicPageData;
 
 export default Berita;

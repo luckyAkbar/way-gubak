@@ -1,7 +1,5 @@
 import BasicPageData from './basicPageData';
 
-interface InfoDemografis extends BasicPageData {
-  
-};
+type InfoDemografis = BasicPageData;
 
 export default InfoDemografis;

@@ -1,7 +1,5 @@
-import BasicPageData from "./basicPageData";
+import BasicPageData from './basicPageData';
 
-interface Profile extends BasicPageData {
-
-};
+type Profile = BasicPageData;
 
 export default Profile;

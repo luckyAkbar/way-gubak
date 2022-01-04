@@ -1,7 +1,5 @@
 import BasicPageData from './basicPageData';
 
-interface AsetDesa extends BasicPageData {
-
-};
+type AsetDesa = BasicPageData;
 
 export default AsetDesa;

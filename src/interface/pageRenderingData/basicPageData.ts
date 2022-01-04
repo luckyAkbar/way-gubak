@@ -1,3 +1,5 @@
+import { FooterLinkContent } from '../pageResource/footer';
+
 interface BasicPageData {
   villageName: string | undefined,
   districtName: string | undefined,
@@ -6,6 +8,7 @@ interface BasicPageData {
   phoneContact: string | undefined,
   villageEmailAddress: string | undefined,
   postalCode: string | undefined,
-};
+  footerLinks: FooterLinkContent[],
+}
 
 export default BasicPageData;

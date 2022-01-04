@@ -1,7 +1,5 @@
-import BasicPageData from "./basicPageData";
+import BasicPageData from './basicPageData';
 
-interface InfoGeografis extends BasicPageData {
-
-};
+type InfoGeografis = BasicPageData;
 
 export default InfoGeografis;

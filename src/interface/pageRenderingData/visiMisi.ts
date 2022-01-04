@@ -1,7 +1,5 @@
-import BasicPageData from "./basicPageData";
+import BasicPageData from './basicPageData';
 
-interface VisiMisi extends BasicPageData {
-
-};
+type VisiMisi = BasicPageData;
 
 export default VisiMisi;

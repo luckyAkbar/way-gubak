@@ -1,7 +1,5 @@
 import BasicPageData from './basicPageData';
 
-interface AgendaPageData extends BasicPageData {
-  
-};
+type AgendaPageData = BasicPageData;
 
 export default AgendaPageData;

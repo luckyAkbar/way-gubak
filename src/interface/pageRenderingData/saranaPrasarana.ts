@@ -1,7 +1,5 @@
-import BasicPageData from "./basicPageData";
+import BasicPageData from './basicPageData';
 
-interface SaranaPrasarana extends BasicPageData {
-
-};
+type SaranaPrasarana = BasicPageData;
 
 export default SaranaPrasarana;

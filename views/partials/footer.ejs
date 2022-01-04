@@ -11,48 +11,17 @@
           <li class="text-secondary"><%= villageEmailAddress %></li>
         </ul>
       </div>
-      <div class="col-md-2">
-        <h6 class="font-weight-bold mb-3">Informasi</h6>
-        <ul>
-          <li><a href="informasi.html">Berita</a></li>
-          <li><a href="agenda.html">Agenda</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2">
-        <h6 class="font-weight-bold mb-3">Profil</h6>
-        <ul>
-          <li><a href="profil.html">Sejarah</a></li>
-          <li><a href="visimisi.html">Visi dan Visi</a></li>
-          <li><a href="info-geografis.html">Info geografis</a></li>
-          <li><a href="info-demografis.html">Info Demografis</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2">
-        <h6 class="font-weight-bold mb-3">Lembaga</h6>
-        <ul>
-          <li><a href="lembaga.html">Pemerintah Desa</a></li>
-          <li><a href="bpd.html">BPD</a></li>
-          <li><a href="pkk.html">PKK</a></li>
-          <li><a href="karangtaruna.html">Karang Taruna</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2">
-        <h6 class="font-weight-bold mb-3">Asset</h6>
-        <ul>
-          <li><a href="asetdesa.html">Asset Desa</a></li>
-          <li><a href="tentang.html">Sarana dan Prasarana</a></li>
-          <li><a href="tentang.html">Pertanian dan Perekonomian</a></li>
-          <li><a href="tentang.html">Budaya dan Pariwisata</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2">
-        <h6 class="font-weight-bold mb-3">Data</h6>
-        <ul>
-          <li><a href="data.html">Regulasi</a></li>
-          <li><a href="data.html">Transparansi Anggaran</a></li>
-          <li><a href="data.html">Formulir Layanan Desa</a></li>
-        </ul>
-      </div>
+
+      <% footerLinks.forEach((link) => { %>
+        <div class="col-md-2">
+          <h6 class="font-weight-bold mb-3"><%= link.mainLink %></h6>
+          <ul>
+            <% link.subLinks.forEach((subLink) => { %>
+              <li><a href="<%= subLink.href %>"><%= subLink.title %></a></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% }); %>
     </div>
   </div>
 

@@ -4,6 +4,6 @@ export interface SideNavItem {
 }
 
 export default interface SideNav {
-  sideNavItems: SideNavItem,
+  sideNavItems: SideNavItem[],
   activateSideNav: string,
 }

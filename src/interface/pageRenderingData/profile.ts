@@ -1,5 +1,8 @@
+import SideNav from '../pageResource/sideNav';
 import BasicPageData from './basicPageData';
 
-type Profile = BasicPageData;
+interface Profile extends BasicPageData, SideNav {
+  
+}
 
 export default Profile;

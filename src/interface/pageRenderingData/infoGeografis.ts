@@ -1,5 +1,8 @@
+import SideNav from '../pageResource/sideNav';
 import BasicPageData from './basicPageData';
 
-type InfoGeografis = BasicPageData;
+interface InfoGeografis extends BasicPageData, SideNav {
+  
+}
 
 export default InfoGeografis;

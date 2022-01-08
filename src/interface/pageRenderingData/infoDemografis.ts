@@ -1,5 +1,8 @@
+import SideNav from '../pageResource/sideNav';
 import BasicPageData from './basicPageData';
 
-type InfoDemografis = BasicPageData;
+interface InfoDemografis extends BasicPageData, SideNav {
+  
+}
 
 export default InfoDemografis;

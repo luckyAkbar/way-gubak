@@ -1,5 +1,8 @@
+import SideNav from '../pageResource/sideNav';
 import BasicPageData from './basicPageData';
 
-type Berita = BasicPageData;
+interface Berita extends BasicPageData, SideNav {
+  
+}
 
 export default Berita;

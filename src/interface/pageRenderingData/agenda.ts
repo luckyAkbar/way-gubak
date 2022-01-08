@@ -1,5 +1,8 @@
+import SideNav from '../pageResource/sideNav';
 import BasicPageData from './basicPageData';
 
-type AgendaPageData = BasicPageData;
+interface AgendaPageData extends BasicPageData, SideNav {
+  
+}
 
 export default AgendaPageData;

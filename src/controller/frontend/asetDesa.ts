@@ -18,6 +18,8 @@ const asetDesaController = async (req: Request, res: Response): Promise<void> =>
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
     activateMainNavbar: 'Aset',
+    sideNavItems: await BasicPage.getAsetSideNavItems(),
+    activateSideNav: 'Aset Desa',
   };
 
   res.render('pages/aset-desa', asetDesa);

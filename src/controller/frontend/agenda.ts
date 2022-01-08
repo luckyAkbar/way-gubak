@@ -18,6 +18,8 @@ const agendaController = async (req: Request, res: Response): Promise<void> => {
     activateMainNavbar: 'Informasi',
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
+    sideNavItems: await BasicPage.getInfoSideNavItems(),
+    activateSideNav: 'Agenda',
   };
 
   res.render('pages/agenda', agendaPageData);

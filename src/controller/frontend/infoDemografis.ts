@@ -17,7 +17,9 @@ const infoDemografisController = async (req: Request, res: Response): Promise<vo
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
-    activateMainNavbar: 'Aset',
+    activateMainNavbar: 'Profile',
+    sideNavItems: await BasicPage.getProfileSideNavItems(),
+    activateSideNav: 'Info Demografis',
   };
 
   res.render('pages/info-demografis', infoDemografis);

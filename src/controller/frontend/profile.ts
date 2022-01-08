@@ -14,6 +14,8 @@ const profileController = async (req: Request, res: Response): Promise<void> => 
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
     activateMainNavbar: 'Profile',
+    sideNavItems: await BasicPage.getProfileSideNavItems(),
+    activateSideNav: 'Sejarah Desa',
   };
 
   res.render('pages/profile', profile);

@@ -18,6 +18,8 @@ const infoGeografisController = async (req: Request, res: Response): Promise<voi
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
     activateMainNavbar: 'Profile',
+    sideNavItems: await BasicPage.getProfileSideNavItems(),
+    activateSideNav: 'info Geografis',
   };
 
   res.render('pages/info-geografis', infoGeografis);

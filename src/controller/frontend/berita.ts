@@ -18,6 +18,8 @@ const beritaController = async (req: Request, res: Response): Promise<void> => {
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
     activateMainNavbar: 'Informasi',
+    sideNavItems: await BasicPage.getInfoSideNavItems(),
+    activateSideNav: 'Berita',
   };
 
   res.render('pages/berita', berita);

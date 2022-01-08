@@ -16,24 +16,11 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Beranda</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="informasi.html">Informasi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profil.html">Profil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="lembaga.html">Lembaga</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="tentang.html">Tentang</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="data.html">Data</a>
-        </li>
+        <% navbarItems.forEach((navbarItem) => { %>
+          <li class="nav-item <%= activateMainNavbar.toLowerCase() === navbarItem.name.toLowerCase() ? 'active' : '' %>">
+            <a class="nav-link" href="<%= navbarItem.href %>"><%= navbarItem.name %></a>
+          </li>
+        <% }) %>
       </ul>
     
       <form class="form-inline ml-auto my-lg-0">

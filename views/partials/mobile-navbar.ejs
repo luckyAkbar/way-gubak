@@ -1,11 +1,8 @@
 <section class="menus">
   <ul class="list-unstyled">
-    <li class="active"><a href="index.html">Beranda</a></li>
-    <li><a href="informasi.html">Informasi</a></li>
-    <li><a href="profil.html">Profil</a></li>
-    <li><a href="lembaga.html">Lembaga</a></li>
-    <li><a href="tentang.html">Tentang</a></li>
-    <li><a href="data.html">Data</a></li>
+    <% navbarItems.forEach((navbarItem) => { %>
+      <li class="<%= activateMainNavbar.toLowerCase() === navbarItem.name.toLowerCase() ? 'active' : '' %>"><a href="<%= navbarItem.href %>"><%= navbarItem.name %></a></li>
+    <% }) %>
     <li>
       <div class="container">
         <form action="#">

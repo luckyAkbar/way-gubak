@@ -13,9 +13,6 @@ const router: Router = express.Router();
 
 router.route('/')
   .get(homeController)
-  .post((req: Request, res: Response): void => {
-    res.status(200).json({ message: req.body });
-  });
 
 router.route('/info')
   .get(beritaController);
@@ -40,5 +37,10 @@ router.route('/profile/saranaPrasarana')
 
 router.route('/aset')
   .get(asetDesaController);
+
+router.route('*')
+  .all((req: Request, res: Response) => {
+    res.sendStatus(404);
+  });
 
 export default router;

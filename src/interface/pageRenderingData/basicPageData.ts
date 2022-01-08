@@ -1,6 +1,7 @@
 import { FooterLinkContent } from '../pageResource/footer';
+import MainNavbar from '../pageResource/navbar';
 
-interface BasicPageData {
+interface BasicPageData extends MainNavbar {
   villageName: string | undefined,
   districtName: string | undefined,
   copyrightYear: string | undefined,

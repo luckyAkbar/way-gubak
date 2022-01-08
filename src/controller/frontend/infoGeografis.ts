@@ -16,6 +16,8 @@ const infoGeografisController = async (req: Request, res: Response): Promise<voi
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
+    activateMainNavbar: 'Profile',
   };
 
   res.render('pages/info-geografis', infoGeografis);

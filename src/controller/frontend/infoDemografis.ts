@@ -16,6 +16,8 @@ const infoDemografisController = async (req: Request, res: Response): Promise<vo
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
+    activateMainNavbar: 'Aset',
   };
 
   res.render('pages/info-demografis', infoDemografis);

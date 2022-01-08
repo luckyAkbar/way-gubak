@@ -12,9 +12,11 @@ const visiMisiController = async (req: Request, res: Response): Promise<void> =>
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
+    activateMainNavbar: 'Profile',
   };
 
-  res.render('pages/visiMisi', visiMisi);
+  res.render('pages/visi-misi', visiMisi);
 };
 
 export default visiMisiController;

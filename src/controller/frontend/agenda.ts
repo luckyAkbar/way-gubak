@@ -15,7 +15,9 @@ const agendaController = async (req: Request, res: Response): Promise<void> => {
     phoneContact: process.env.PHONE_CONTACT,
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
+    activateMainNavbar: 'Informasi',
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
   };
 
   res.render('pages/agenda', agendaPageData);

@@ -17,6 +17,8 @@ const homeController = async (req: Request, res: Response): Promise<void> => {
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
+    activateMainNavbar: 'Beranda',
   };
 
   res.status(200).render('pages/home', homepageData);

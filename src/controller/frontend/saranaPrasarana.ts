@@ -12,9 +12,11 @@ const saranaPrasaranaController = async (req: Request, res: Response): Promise<v
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
+    activateMainNavbar: 'Profile'
   };
 
-  res.render('pages/saranaPrasarana', saranaPrasarana);
+  res.render('pages/sarana-prasarana', saranaPrasarana);
 };
 
 export default saranaPrasaranaController;

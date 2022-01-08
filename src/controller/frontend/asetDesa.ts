@@ -16,6 +16,8 @@ const asetDesaController = async (req: Request, res: Response): Promise<void> =>
     villageEmailAddress: process.env.VILLAGE_EMAIL_ADDRESS,
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
+    navbarItems: await BasicPage.getNavbarItems(),
+    activateMainNavbar: 'Aset',
   };
 
   res.render('pages/aset-desa', asetDesa);

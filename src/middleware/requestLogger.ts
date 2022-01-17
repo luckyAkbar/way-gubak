@@ -8,6 +8,11 @@ import ServerConfigError from '../class/Error/ServerConfigError';
 
 dotenv.config();
 
+morgan.token('body', function (req: Request) {
+  return JSON.stringify(req.body);
+});
+morgan.format('production', ':remote-addr HTTP :http-version :method :url :status :total-time ms :body :user-agent');
+
 const getRequestLogPath = (): string => {
   const requestLogPath: string | undefined = process.env.REQUEST_LOG_PATH;
 
@@ -22,7 +27,7 @@ const getRequestLogFormat = (): string => {
   if (requestLogFormat === undefined) throw new ServerConfigError('REQUEST_LOG_FORMAT is undefined. Please specify one in your .env file');
 
   return requestLogFormat;
-}
+};
 
 const requestLogger = morgan(getRequestLogFormat(), {
   stream: fs.createWriteStream(path.join(getRequestLogPath(), 'request.log'), {

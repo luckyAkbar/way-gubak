@@ -16,7 +16,15 @@ const getRequestLogPath = (): string => {
   return requestLogPath;
 };
 
-const requestLogger = morgan('short', {
+const getRequestLogFormat = (): string => {
+  const requestLogFormat: string | undefined = process.env.REQUEST_LOG_FORMAT;
+
+  if (requestLogFormat === undefined) throw new ServerConfigError('REQUEST_LOG_FORMAT is undefined. Please specify one in your .env file');
+
+  return requestLogFormat;
+}
+
+const requestLogger = morgan(getRequestLogFormat(), {
   stream: fs.createWriteStream(path.join(getRequestLogPath(), 'request.log'), {
     flags: 'a',
   }),

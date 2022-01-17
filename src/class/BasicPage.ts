@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { strict as assert } from 'assert';
 import { FooterLinkContent } from '../interface/pageResource/footer';
 import FooterLinkModel from '../models/frontend/footerLink';
-import ServerConfigError from './ServerConfigError';
+import ServerConfigError from './Error/ServerConfigError';
 import { MainNavbarItem } from '../interface/pageResource/navbar';
 import { SideNavItem } from '../interface/pageResource/sideNav';
 

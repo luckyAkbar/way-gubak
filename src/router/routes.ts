@@ -8,6 +8,8 @@ import beritaController from '../controller/frontend/berita';
 import profileController from '../controller/frontend/profile';
 import visiMisiController from '../controller/frontend/visiMisi';
 import saranaPrasaranaController from '../controller/frontend/saranaPrasarana';
+import UMKMProfileController from '../controller/frontend/profileUMKM';
+import detailProductUMKMController from '../controller/frontend/detailProductUMKM';
 
 const router: Router = express.Router();
 
@@ -37,6 +39,12 @@ router.route('/profile/saranaPrasarana')
 
 router.route('/aset')
   .get(asetDesaController);
+
+router.route('/umkm/:ID')
+  .get(UMKMProfileController);
+
+router.route('/umkm/product/:ID')
+  .get(detailProductUMKMController);
 
 router.route('*')
   .all((req: Request, res: Response) => {

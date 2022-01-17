@@ -1,0 +1,23 @@
+<div class="product-box-main row">
+   <% listProducts.forEach((product) => { %> 
+      <div class="col-md-4 col-sm-6">
+         <div class="small-box-c">
+            <div class="small-img-b">
+               <img src="<%= product.imageLink %>" alt="<%= product.imageAlt %>" />
+            </div>
+            <div class="dit-t clearfix">
+               <div class="left-ti">
+                  <h4><%= product.name %></h4>
+                  <p>Kategori <span><%= product.category %></span></p>
+               </div>
+               <a href="#" tabindex="0"><%= product.currency %><%= product.price %></a>
+            </div>
+            <div class="prod-btn">
+               <a href="#"><i class="fa fa-star" aria-hidden="true"></i>Detail Produk</a>
+               <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like this</a>
+               <p><%= product.totalLikes %> likes</p>
+            </div>
+         </div>
+      </div>
+   <% }); %>
+</div>

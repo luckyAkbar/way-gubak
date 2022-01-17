@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/umkm/head'); %>
+   <body>
+      <div class="product-page-main">
+         <div class="container">
+            <%- include('../partials/umkm/product/title'); %>
+            <div class="row">
+               <%- include('../partials/umkm/product/avatar-penjual'); %>
+               <div class="col-md-7 col-sm-8">
+                  <div class="md-prod-page">
+                     <div class="md-prod-page-in">
+                        <%- include('../partials/umkm/product/preview'); %>
+                        <%- include('../partials/umkm/product/total-like'); %>
+                     </div>
+                     <%- include('../partials/umkm/product/deskripsi'); %>
+                  </div>
+                  <%- include('../partials/umkm/product/rekomendasi'); %>
+               </div>
+               <%- include('../partials/umkm/product/price-box'); %>
+            </div>
+         </div>
+      </div>
+      <%- include('../partials/umkm/footer'); %>
+      <%- include('../partials/umkm/import-js-script'); %>
+   </body>
+</html>

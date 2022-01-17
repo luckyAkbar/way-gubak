@@ -1,0 +1,23 @@
+<div class="profile-box banner-p">
+  <div class="container">
+     <div class="row">
+        <div class="col-md-12">
+           <div class="profile-b">
+              <img src="<%= UMKMFeaturedImageLink %>" alt="<%= UMKMAltForFeaturedImage %>" />
+              <div class="dit-p">
+                 <div class="col-md-2"></div>
+                 <div class="col-md-10">
+                    <div class="profile-left-b">
+                        <ul>
+                           <% tags.forEach((tag) => { %>
+                              <li><span style="font-weight: bold; color: white;"><%= tag %></span></li>
+                           <% }) %>
+                        </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

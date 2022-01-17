@@ -1,0 +1,30 @@
+<style>
+  #contactTable {
+    margin-top: 5%;
+  }
+
+  #contactTable tr:hover {
+    background-color: aqua;
+  }
+
+  #contactTable td {
+    padding: 0 15px;
+  }
+
+  #contactTable .contact-type {
+    font-weight: bold;
+  }
+</style>
+
+<div class="tab-pane fade" id="tab3default">
+  <h2><%= UMKMName %></h2>
+
+  <table id="contactTable">
+    <% contacts.forEach((contact) => { %>
+      <tr>
+        <td class="contact-type"><%= contact.type %></td>
+        <td><%= contact.detail %></td>
+      </tr>
+    <% }) %>
+  </table>
+</div>

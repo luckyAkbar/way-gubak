@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/umkm/head'); %>
+  <body>
+    <%- include('../partials/umkm/banner-profile-box'); %>
+    <div class="product-profile-box">
+        <div class="container">
+          <div class="row">
+              <%- include('../partials/umkm/profile-penjual'); %>
+              <div class="col-md-10 col-sm-8">
+                <div class="profile-pro-right">
+                    <div class="panel with-nav-tabs panel-default">
+                      <%- include('../partials/umkm/panel-heading'); %>
+                      <div class="panel-body">
+                          <div class="tab-content">
+                            <div class="tab-pane fade in active" id="tab1default">
+                                <%- include('../partials/umkm/products-list'); %>
+                                <%- include('../partials/umkm/loading-box'); %>
+                            </div>
+                            <%- include('../partials/umkm/deskripsi-penjual'); %>
+                            <%- include('../partials/umkm/kontak-info'); %>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <%- include('../partials/umkm/footer'); %>
+    <%- include('../partials/umkm/import-js-script'); %>
+  </body>
+</html>

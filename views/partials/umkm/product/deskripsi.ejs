@@ -1,0 +1,23 @@
+<div class="description-box">
+  <div class="dex-a">
+     <h4>Deskripsi Produk</h4>
+      <% descriptions.forEach((description) => { %>
+         <p><%- description %></p>
+      <% }); %>
+  </div>
+  <div class="spe-a">
+     <h4>Spesifikasi</h4>
+     <ul>
+        <% spesifications.forEach((spesification) => { %>
+         <li class="clearfix">
+            <div class="col-md-4">
+               <h5><%= spesification.title %></h5>
+            </div>
+            <div class="col-md-8">
+               <p><%= spesification.value %></p>
+            </div>
+         </li>
+        <% }); %>
+     </ul>
+  </div>
+</div>

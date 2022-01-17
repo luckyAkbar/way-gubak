@@ -3,4 +3,5 @@ test.js
 node_modules/
 frontend-page/
 ./init.js
+./init.ts
 *.log

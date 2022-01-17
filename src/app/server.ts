@@ -7,6 +7,7 @@ import requestLogger from '../middleware/requestLogger';
 const server:Express = express();
 
 server.set('view engine', 'ejs');
+server.set('trust proxy', true);
 
 server.use(express.urlencoded({ extended: false }));
 server.use(cookieParser());

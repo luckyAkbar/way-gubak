@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { Request } from 'express';
 import morgan from 'morgan';
-import ServerConfigError from '../class/ServerConfigError';
+import ServerConfigError from '../class/Error/ServerConfigError';
 
 dotenv.config();
 

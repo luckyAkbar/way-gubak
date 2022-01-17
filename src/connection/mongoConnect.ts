@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 
 import mongoose from 'mongoose';
-import ServerConfigError from '../class/ServerConfigError';
+import ServerConfigError from '../class/Error/ServerConfigError';
 
 dotenv.config();
 

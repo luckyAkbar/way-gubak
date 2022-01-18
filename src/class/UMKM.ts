@@ -114,6 +114,7 @@ export default class UMKM {
       if (result === null) throw new UserRequestError(`UMKM dengan ID ${this.UMKM_ID} tidak ketemu`, 'Pastikan anda mencari UMKM dengan ID-nya yang valid.');
 
       const UMKMPageData: UMKMPage = {
+        villageName: this.villageName,
         UMKMFeaturedImageLink: `${this.imageHrefPrefix}${result.featuredImageName}`,
         UMKMAltForFeaturedImage: result.featuredImageAlt,
         tags: result.tags,

@@ -11,6 +11,7 @@ interface RecomendedProduct {
 }
 
 export default interface UMKMProductsPageData {
+  villageName: string | undefined,
   name: string,
   UMKMName: string,
   UMKMLogoLink: string,

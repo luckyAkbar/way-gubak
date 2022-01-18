@@ -9,7 +9,9 @@ export default class ProductUMKM {
   ID: number;
   imageHrefPrefix: string | undefined;
   UMKMProfilePagePrefixLink: string | undefined;
+  villageName: string | undefined;
   defaultProductPageData: UMKMProductsPageData = {
+    villageName: '',
     name: '',
     UMKMName: '',
     UMKMLogoLink: '',
@@ -29,6 +31,7 @@ export default class ProductUMKM {
     this.ID = Number(ID);
     this.imageHrefPrefix = process.env.PREFIX_IMAGE_HREF_LINK;
     this.UMKMProfilePagePrefixLink = process.env.PREFIX_LINK_TOKO_UMKM;
+    this.villageName = process.env.VILLAGE_NAME;
 
     this.validate();
   }
@@ -46,6 +49,7 @@ export default class ProductUMKM {
       const product: UMKMProductsPageData = {
         UMKMName,
         recomendedProducts,
+        villageName: this.villageName,
         name: result.name,
         UMKMLogoLink: `${this.imageHrefPrefix}${UMKMLogoName}`,
         UMKMAltForLogo: UMKMLogoAlt,

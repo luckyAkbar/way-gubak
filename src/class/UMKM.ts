@@ -13,7 +13,10 @@ dotenv.config();
 export default class UMKM {
   UMKM_ID: number;
   imageHrefPrefix: string | undefined;
+  productLinkPrefix: string | undefined;
+  villageName: string | undefined;
   defaultUMKMProfileData: UMKMPage = {
+    villageName: '',
     UMKMFeaturedImageLink: '',
     UMKMAltForFeaturedImage: '',
     tags: [''],
@@ -28,6 +31,8 @@ export default class UMKM {
   constructor(ID: string) {
     this.UMKM_ID = Number(ID);
     this.imageHrefPrefix = process.env.PREFIX_IMAGE_HREF_LINK;
+    this.villageName = process.env.VILLAGE_NAME;
+    this.productLinkPrefix = process.env.PREFIX_PRODUCT_LINK;
 
     this.validate();
   }

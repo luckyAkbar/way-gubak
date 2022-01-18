@@ -10,6 +10,7 @@ import visiMisiController from '../controller/frontend/visiMisi';
 import saranaPrasaranaController from '../controller/frontend/saranaPrasarana';
 import UMKMProfileController from '../controller/frontend/profileUMKM';
 import detailProductUMKMController from '../controller/frontend/detailProductUMKM';
+import errorPageRenderer from '../controller/error';
 
 const router: Router = express.Router();
 
@@ -48,7 +49,7 @@ router.route('/umkm/product/:ID')
 
 router.route('*')
   .all((req: Request, res: Response) => {
-    res.sendStatus(404);
+    errorPageRenderer(res);
   });
 
 export default router;

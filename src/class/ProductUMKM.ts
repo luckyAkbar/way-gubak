@@ -89,6 +89,12 @@ export default class ProductUMKM {
 
       err.logError();
     }
-    
+
+    if (this.villageName === undefined) {
+      const err = new ServerConfigError(`Please define VILLAGE_NAME in your .env file. This server now using default value for VILLAGE_NAME ("Desa")`);
+      this.villageName = 'Desa';
+
+      err.logError();
+    }
   }
 }

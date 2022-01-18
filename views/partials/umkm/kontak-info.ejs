@@ -3,6 +3,10 @@
     margin-top: 5%;
   }
 
+  table, th, td {
+    border: 1px solid black;
+  }
+
   #contactTable tr:hover {
     background-color: aqua;
   }
@@ -14,12 +18,21 @@
   #contactTable .contact-type {
     font-weight: bold;
   }
+
+  #contactTableTitle {
+    display: block;
+  }
 </style>
 
 <div class="tab-pane fade" id="tab3default">
   <h2><%= UMKMName %></h2>
 
   <table id="contactTable">
+    <thead>
+      <tr>
+        <th colspan="3"><span id="contactTableTitle" style="text-align: center;">Informasi Kontak UMKM</span></th>
+      </tr>
+    </thead>
     <% contacts.forEach((contact) => { %>
       <tr>
         <td class="contact-type"><%= contact.type %></td>

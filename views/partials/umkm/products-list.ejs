@@ -3,19 +3,21 @@
       <div class="col-md-4 col-sm-6">
          <div class="small-box-c">
             <div class="small-img-b">
-               <img src="<%= product.imageLink %>" alt="<%= product.imageAlt %>" />
+               <a href="<%= product.productLink %>">
+                  <img src="<%= product.imageLink %>" alt="<%= product.imageAlt %>" />
+               </a>
             </div>
             <div class="dit-t clearfix">
                <div class="left-ti">
-                  <h4><%= product.name %></h4>
+                  <h4><a style="all: revert; text-decoration: none;" href="<%= product.productLink %>"><%= product.name %></a></h4>
                   <p>Kategori <span><%= product.category %></span></p>
                </div>
-               <a href="#" tabindex="0"><%= product.currency %><%= product.price %></a>
+               <a href="<%= product.productLink %>" tabindex="0"><%= product.currency %><%= product.price %></a>
             </div>
             <div class="prod-btn">
-               <a href="#"><i class="fa fa-star" aria-hidden="true"></i>Detail Produk</a>
-               <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like this</a>
-               <p><%= product.totalLikes %> likes</p>
+               <a href="<%= product.productLink %>"><i class="fa fa-star" aria-hidden="true"></i>Detail Produk</a>
+               <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Sukai produk ini</a>
+               <p><%= product.totalLikes %> suka</p>
             </div>
          </div>
       </div>

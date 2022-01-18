@@ -61,12 +61,14 @@ export default class UMKM {
 
       for (let i = 0; i < allProducts.length; i++) {
         const product: ProductAttributeInList = {
+          productLink: `${this.productLinkPrefix}${allProducts[i].id}`,
           imageLink: `${this.imageHrefPrefix}${allProducts[i].imageName}`,
           imageAlt: allProducts[i].imageAlt,
           currency: allProducts[i].currency,
           name: allProducts[i].name,
           price: allProducts[i].price,
           totalLikes: allProducts[i].totalLikes,
+          category: allProducts[i].category,
         };
 
         listProducts.push(product);

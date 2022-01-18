@@ -196,5 +196,19 @@ export default class UMKM {
 
       err.logError();
     }
+
+    if (this.villageName === undefined) {
+      const err = new ServerConfigError(`Please define VILLAGE_NAME in your .env file. This server now using default value for VILLAGE_NAME ("Desa")`);
+      this.villageName = 'Desa';
+
+      err.logError();
+    }
+
+    if (this.productLinkPrefix === undefined) {
+      const err = new ServerConfigError(`Please define PREFIX_PRODUCT_LINK in your .env file. This server now using default value for PREFIX_PRODUCT_LINK ("/umkm/product/")`);
+      this.productLinkPrefix = '/umkm/product/';
+
+      err.logError();
+    }
   }
 }

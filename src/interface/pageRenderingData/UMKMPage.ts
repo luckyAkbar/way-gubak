@@ -1,6 +1,8 @@
 import { UMKMContact } from "../profileUMKM";
 
 interface ProductAttributeInList {
+  productLink: string,
+  category: string,
   imageLink: string,
   imageAlt: string,
   currency: string,
@@ -10,6 +12,7 @@ interface ProductAttributeInList {
 }
 
 export default interface UMKMPage {
+  villageName: string | undefined,
   UMKMFeaturedImageLink: string,
   UMKMAltForFeaturedImage: string,
   tags: string[],

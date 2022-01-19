@@ -7,6 +7,7 @@ import UMKMPage, { ProductAttributeInList } from '../interface/pageRenderingData
 import Product from '../models/product';
 import ProductInterface from '../interface/productDetail';
 import { RecomendedProduct } from '../interface/pageRenderingData/UMKMProduct';
+import { UMKMContact } from '../interface/profileUMKM';
 
 dotenv.config();
 
@@ -155,6 +156,26 @@ export default class UMKM {
       await err.logError();
 
       return '';
+    }
+  }
+
+  async getUMKMContact(): Promise<Array<UMKMContact>> {
+    try {
+      const result = await ProfileUMKMModel.findOne({ id: this.UMKM_ID }, { contacts: 1 });
+      if (result === null) throw new CustomError(`Data UMKM dengan ID: ${this.UMKM_ID} tidak ditemukan.`, 'Hal ini bisa disebabkan antara User mencari UMKM yang tidak ditemukan, atau terdapat data UMKM yang hilang.');
+
+      return result.contacts;
+    } catch (e: unknown) {
+      if (e instanceof CustomError) {
+        await e.logError();
+
+        return [];
+      }
+
+      const err = new CustomError('System failed to get UMKM name.', (e as Error).message, );
+      await err.logError();
+
+      return [];
     }
   }
 

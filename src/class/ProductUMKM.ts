@@ -4,6 +4,7 @@ import UserRequestError from "./Error/UserRequestError";
 import CustomError from "./Error/CustomError";
 import UMKM from "./UMKM";
 import ServerConfigError from "./Error/ServerConfigError";
+import { UMKMContact } from "../interface/profileUMKM";
 
 export default class ProductUMKM {
   ID: number;
@@ -17,6 +18,7 @@ export default class ProductUMKM {
     UMKMLogoLink: '',
     UMKMAltForLogo: '',
     linkToUMKMProfilePage: '',
+    contacts: [],
     details: [{ imageName: '', imageAlt: '' }],
     totalLikes: -1,
     descriptions: [''],
@@ -45,10 +47,12 @@ export default class ProductUMKM {
       const UMKMName: string = await umkm.getUMKMName();
       const { UMKMLogoName, UMKMLogoAlt } = await umkm.getUMKMLogoImgName();
       const recomendedProducts: RecomendedProduct[] = await umkm.createRecomendedProduct();
+      const contacts: UMKMContact[] = await umkm.getUMKMContact();
 
       const product: UMKMProductsPageData = {
         UMKMName,
         recomendedProducts,
+        contacts,
         villageName: this.villageName,
         name: result.name,
         UMKMLogoLink: `${this.imageHrefPrefix}${UMKMLogoName}`,

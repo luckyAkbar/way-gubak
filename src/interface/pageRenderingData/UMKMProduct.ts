@@ -1,4 +1,5 @@
 import { ProductDetail, ProductSpesification } from "../productDetail";
+import { UMKMContact } from "../profileUMKM";
 
 interface RecomendedProduct {
   name: string,
@@ -17,6 +18,7 @@ export default interface UMKMProductsPageData {
   UMKMLogoLink: string,
   UMKMAltForLogo: string,
   linkToUMKMProfilePage: string,
+  contacts: UMKMContact[],
   details: ProductDetail[],
   totalLikes: number,
   descriptions: string[],

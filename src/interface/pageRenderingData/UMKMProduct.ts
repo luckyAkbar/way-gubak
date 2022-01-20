@@ -1,3 +1,4 @@
+import { FooterLinkContent } from "../pageResource/footer";
 import { ProductDetail, ProductSpesification } from "../productDetail";
 import { UMKMContact } from "../profileUMKM";
 
@@ -27,6 +28,8 @@ export default interface UMKMProductsPageData {
   currency: string,
   price: number,
   imageHrefPrefix: string | undefined,
+  footerLinks: FooterLinkContent[],
+  copyrightYear: string | undefined,
 }
 
 export { RecomendedProduct };

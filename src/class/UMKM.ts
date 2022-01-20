@@ -8,6 +8,7 @@ import Product from '../models/product';
 import ProductInterface from '../interface/productDetail';
 import { RecomendedProduct } from '../interface/pageRenderingData/UMKMProduct';
 import { UMKMContact } from '../interface/profileUMKM';
+import BasicPage from './BasicPage';
 
 dotenv.config();
 
@@ -27,6 +28,8 @@ export default class UMKM {
     listProducts: [],
     UMKMDescriptions: [''],
     contacts: [{ type: '', detail: '' }],
+    footerLinks: [],
+    copyrightYear: '',
   };
 
   constructor(ID: string) {
@@ -125,8 +128,9 @@ export default class UMKM {
         listProducts: await this.getListProducts(),
         UMKMDescriptions: result.descriptions,
         contacts: result.contacts,
-        // id: result.id,
-      }
+        footerLinks: await BasicPage.getFooterLinks(),
+        copyrightYear: process.env.COPYRIGHT_YEAR,
+      };
 
       return UMKMPageData;
     } catch (e: unknown) {

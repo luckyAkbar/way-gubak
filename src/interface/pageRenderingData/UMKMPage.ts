@@ -1,3 +1,4 @@
+import { FooterLinkContent } from "../pageResource/footer";
 import { UMKMContact } from "../profileUMKM";
 
 interface ProductAttributeInList {
@@ -13,6 +14,7 @@ interface ProductAttributeInList {
 
 export default interface UMKMPage {
   villageName: string | undefined,
+  copyrightYear: string | undefined,
   UMKMFeaturedImageLink: string,
   UMKMAltForFeaturedImage: string,
   tags: string[],
@@ -21,7 +23,8 @@ export default interface UMKMPage {
   UMKMName: string,
   listProducts: ProductAttributeInList[],
   UMKMDescriptions: string[],
-  contacts: UMKMContact[]
+  contacts: UMKMContact[],
+  footerLinks: FooterLinkContent[],
 }
 
 export { ProductAttributeInList }

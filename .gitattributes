@@ -1,3 +1,2 @@
 *.ejs linguist-detectable=false
 *.js linguist-detectable=false
-Dockerfile linguist-detectable=false

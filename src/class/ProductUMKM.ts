@@ -5,6 +5,7 @@ import CustomError from "./Error/CustomError";
 import UMKM from "./UMKM";
 import ServerConfigError from "./Error/ServerConfigError";
 import { UMKMContact } from "../interface/profileUMKM";
+import BasicPage from "./BasicPage";
 
 export default class ProductUMKM {
   ID: number;
@@ -27,6 +28,8 @@ export default class ProductUMKM {
     currency: '',
     price: 0,
     imageHrefPrefix: '',
+    footerLinks: [],
+    copyrightYear: '',
   };
   
   constructor(ID: string) {
@@ -65,6 +68,8 @@ export default class ProductUMKM {
         currency: result.currency,
         price: result.price,
         imageHrefPrefix: this.imageHrefPrefix,
+        footerLinks: await BasicPage.getFooterLinks(),
+        copyrightYear: process.env.COPYRIGHT_YEAR,
       };
 
       return product;

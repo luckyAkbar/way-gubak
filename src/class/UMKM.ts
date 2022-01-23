@@ -95,6 +95,7 @@ export default class UMKM {
 
       for (let i = 0; i < allProducts.length; i++) {
         recomendedProduct.push({
+          href: `${this.productLinkPrefix}${allProducts[i].id}`,
           name: allProducts[i].name,
           imageLink: `${this.imageHrefPrefix}${allProducts[i].imageName}`,
           imageAlt: allProducts[i].imageAlt,

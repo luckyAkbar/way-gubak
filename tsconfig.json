@@ -99,6 +99,7 @@
   },
   
   "exclude": [
-    "./init.ts"
+    "./init.ts",
+    "./test.ts"
   ]
 }

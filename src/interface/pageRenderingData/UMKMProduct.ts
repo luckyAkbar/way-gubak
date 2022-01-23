@@ -3,6 +3,7 @@ import { ProductDetail, ProductSpesification } from "../productDetail";
 import { UMKMContact } from "../profileUMKM";
 
 interface RecomendedProduct {
+  href: string,
   name: string,
   imageLink: string,
   imageAlt: string,

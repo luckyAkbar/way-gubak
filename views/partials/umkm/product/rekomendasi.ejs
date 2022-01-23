@@ -5,17 +5,21 @@
       <div class="col-md-6">
          <div class="small-box-c">
             <div class="small-img-b">
-               <img class="img-responsive" src="<%= product.imageLink %>" alt="<%= product.imageAlt %>" />
+               <a href="<%= product.href %>">
+                  <img class="img-responsive" src="<%= product.imageLink %>" alt="<%= product.imageAlt %>" />
+               </a>
             </div>
             <div class="dit-t clearfix">
                <div class="left-ti">
-                  <h4><%= product.name %></h4>
+                  <a href="<%= product.href %>">
+                     <h4><%= product.name %></h4>
+                  </a>
                   <p>Kategori <span><%= product.category %></span></p>
                </div>
-               <a href="#" tabindex="0"><%= product.currency %><%= product.price %></a>
+               <a href="<%= product.href %>" tabindex="0"><%= product.currency %><%= product.price %></a>
             </div>
             <div class="prod-btn">
-               <a href="#"><i class="fa fa-star" aria-hidden="true"></i> Detail Produk</a>
+               <a href="<%= product.href %>"><i class="fa fa-star" aria-hidden="true"></i> Detail Produk</a>
                <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Sukai Produk</a>
                <p><%= product.totalLikes %> suka</p>
             </div>

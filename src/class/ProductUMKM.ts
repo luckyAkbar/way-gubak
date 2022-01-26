@@ -7,6 +7,14 @@ import UMKM from "./UMKM";
 import ServerConfigError from "./Error/ServerConfigError";
 import { UMKMContact } from "../interface/profileUMKM";
 import BasicPage from "./BasicPage";
+import IProduct from '../interface/productDetail';
+import { CarouselItem } from '../interface/pageResource/product/index/carousel';
+import ProductIndexPageData from '../interface/pageRenderingData/productIndex';
+import { SidebarItem } from '../interface/pageResource/product/index/sidebar';
+import ProfileUMKM from '../models/UMKM';
+import { FeaturedProductItem } from '../interface/pageResource/product/index/featuredProduct';
+import featuredProductDataShaper from '../util/featuredProductDataShaper';
+import { LatestProductItem } from '../interface/pageResource/product/index/latestProduct';
 
 export default class ProductUMKM {
   ID: number;

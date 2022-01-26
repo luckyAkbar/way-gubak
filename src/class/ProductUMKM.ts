@@ -40,6 +40,9 @@ export default class ProductUMKM {
     footerLinks: [],
     copyrightYear: '',
   };
+
+  static staticProductHrefPrefix = process.env.PREFIX_PRODUCT_LINK ? process.env.PREFIX_PRODUCT_LINK : '/umkm/product/';
+  static staticImageLinkPrefix = process.env.PREFIX_IMAGE_HREF_LINK ? process.env.PREFIX_IMAGE_HREF_LINK : '/images/';
   
   constructor(ID: string) {
     this.ID = Number(ID);

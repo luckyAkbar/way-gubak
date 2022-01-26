@@ -270,6 +270,7 @@ export default class ProductUMKM {
   static async getProductIndexPageData(): Promise<ProductIndexPageData> {
     try {
       const productIndexPageData: ProductIndexPageData = {
+        villageName: BasicPage.villageName,
         carouselItems: await this.getCarouselItems(),
         sidebarItems: await this.getSidebarProducts(),
         featuredProducts: await this.getFeaturedProduct(),

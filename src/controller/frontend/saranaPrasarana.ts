@@ -13,8 +13,8 @@ const saranaPrasaranaController = async (req: Request, res: Response): Promise<v
     postalCode: process.env.POSTAL_CODE,
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
-    sideNavItems: await BasicPage.getInfoSideNavItems(),
-    activateSideNav: 'agenda',
+    sideNavItems: await BasicPage.getProfileSideNavItems(),
+    activateSideNav: 'sarana dan prasarana',
     activateMainNavbar: 'Profile'
   };
 

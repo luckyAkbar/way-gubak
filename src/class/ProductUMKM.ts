@@ -1,3 +1,4 @@
+import { strict as assert } from 'assert';
 import Product from "../models/product";
 import UMKMProductsPageData, { RecomendedProduct } from "../interface/pageRenderingData/UMKMProduct";
 import UserRequestError from "./Error/UserRequestError";

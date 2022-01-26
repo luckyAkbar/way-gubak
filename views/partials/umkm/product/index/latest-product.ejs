@@ -1,0 +1,22 @@
+<h4>Latest Products</h4>
+<ul class="thumbnails">
+  <% latestProducts.forEach((product) => { %>
+    <li class="span3">
+      <div class="thumbnail">
+        <a  href="<%= product.href %>"><img src="<%= product.imageLink %>" alt="<%= product.imageLink %>"/></a>
+        <div class="caption">
+          <h5><%= product.name %></h5>
+          <p><%= product.shortDesc %></p>
+          <h4 style="text-align:center">
+            <a class="btn" href="<%= product.href %>"> 
+              Lihat Produk<i class="icon-zoom-in"></i>
+            </a> <br>
+            <a class="btn btn-primary" href="<%= product.href %>">
+              <%= product.currency %><%= product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+            </a>
+          </h4>
+        </div>
+      </div>
+    </li>
+  <% }); %>
+</ul>	

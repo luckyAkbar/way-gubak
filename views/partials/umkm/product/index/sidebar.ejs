@@ -1,0 +1,17 @@
+<!-- Sidebar ================================================== -->
+<div id="sidebar" class="span3">
+  <% for (let i = 0; i < sidebarItems.length; i++) { %>
+    <div class="thumbnail">
+      <img src="<%= sidebarItems[i].imageLink %>" alt="<%= sidebarItems[i].imageAlt %>"/>
+      <div class="caption">
+        <h5><%= sidebarItems[i].productName %></h5>
+        <h4 style="text-align:center">
+          <a class="btn" href="<%= sidebarItems[i].productLink %>">
+            Lihat produk <i class="icon-zoom-in"></i>
+          </a> <br>
+          <a class="btn btn-primary" href="<%= sidebarItems[i].productLink %>"><%= sidebarItems[i].currency %><%= sidebarItems[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %></a>
+        </h4>
+      </div>
+    </div>
+  <% } %>
+</div>

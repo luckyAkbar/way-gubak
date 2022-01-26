@@ -1,0 +1,17 @@
+<div class="carousel-inner">
+  <% for (let i = 0; i < carouselItems.length; i++) { %>
+    <div class="item <%= i === 0 ? 'active' : '' %>">
+      <div class="container">
+        <a href="<%= carouselItems[i].productLink %>">
+          <img src="<%= carouselItems[i].imageLink %>" alt="<%= carouselItems[i].imageAlt %>" style="height: 100%; max-height: 400px;">
+        </a>
+        <div class="carousel-caption">
+          <h4><%= carouselItems[i].productName %></h4>
+          <p><%= carouselItems[i].productDesc %></p>
+        </div>
+      </div>
+    </div>
+  <% } %>
+</div>
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>

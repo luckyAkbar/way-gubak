@@ -275,6 +275,7 @@ export default class ProductUMKM {
         sidebarItems: await this.getSidebarProducts(),
         featuredProducts: await this.getFeaturedProduct(),
         latestProducts: await this.getLatestProductPageData(),
+        footerItems: await BasicPage.getFooterLinks(),
       };
 
       return productIndexPageData;

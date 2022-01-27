@@ -243,4 +243,80 @@ export default class UMKM {
       err.logError();
     }
   }
+
+  static async getAllUMKM(): Promise<Array<I_UMKM>> {
+    try {
+      const allUMKM = await ProfileUMKMModel.find();
+
+      assert.notStrictEqual(allUMKM.length, 0);
+
+      return allUMKM;
+    } catch (e: unknown) {
+      const err = new CustomError('System failed to fetch all UMKM from database.', (e as CustomError).message);
+      await err.logError();
+
+      return [];
+    }
+  }
+
+  static async getUMKMNameFromID(ID: number): Promise<string> {
+    try {
+      const result = await ProfileUMKMModel.findOne({
+        id: ID,
+      }, {
+        name: 1,
+        _id: 0,
+      });
+
+      if (result === null) throw new Error();
+
+      return result.name;
+    } catch (e: unknown) {
+      return '';
+    }
+  }
+
+  static async createUMKMListData(): Promise<Array<UMKMListItem>> {
+    const UMKMList: UMKMListItem[] = [];
+
+    try {
+      const allUMKM = await this.getAllUMKM();
+      assert.notStrictEqual(allUMKM.length, 0);
+
+      allUMKM.forEach((umkm) => {
+        UMKMList.push({
+          name: umkm.name,
+          UMKMFeaturedProductImageAlt: umkm.featuredImageAlt,
+          UMKMFeaturedProductImageLink: `${ProductUMKM.staticImageLinkPrefix}${umkm.featuredImageName}`,
+          fullDescription: umkm.descriptions.join(' '),
+          profileLink: `${UMKM.UMKMProfileLinkPrefix}${umkm.id}`,
+        })
+      });
+    } catch (e: unknown) {
+      const err = new CustomError('System failed to create UMKM list data.', (e as Error).message);
+
+      await err.logError();
+    } finally {
+      return UMKMList;
+    }
+  }
+
+  static async getIndexPageData(): Promise<UMKMIndexPageData> {
+    try {
+      const indexPageData: UMKMIndexPageData = {
+        villageName: BasicPage.villageName,
+        copyrightYear: BasicPage.copyrightYear,
+        footerLinks: await BasicPage.getFooterLinks(),
+        UMKMList: await this.createUMKMListData(),
+        trendingProducts: await ProductUMKM.createTrendingProductsData(),
+      };
+
+      return indexPageData;
+    } catch (e: unknown) {
+      const err = new CustomError('System failed to generate UMKM index page data.', (e as Error).message, true, 'high');
+      await err.logError();
+
+      throw err;
+    }
+  }
 }

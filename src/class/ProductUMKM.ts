@@ -15,6 +15,7 @@ import ProfileUMKM from '../models/UMKM';
 import { FeaturedProductItem } from '../interface/pageResource/product/index/featuredProduct';
 import featuredProductDataShaper from '../util/featuredProductDataShaper';
 import { LatestProductItem } from '../interface/pageResource/product/index/latestProduct';
+import TrendingProducts, { TrendingProductItem } from '../interface/pageResource/umkm/trendingProducts';
 
 export default class ProductUMKM {
   ID: number;

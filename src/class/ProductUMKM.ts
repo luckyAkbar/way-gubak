@@ -195,6 +195,21 @@ export default class ProductUMKM {
     }
   }
 
+  static async getAllProducts(): Promise<Array<IProduct>> {
+    try {
+      const allProducts = await Product.find();
+
+      assert.notStrictEqual(allProducts.length, 0);
+
+      return allProducts;
+    } catch (e: unknown) {
+      const err = new CustomError('System failed to fetch all products. This may be caused of database is not initialize yet.', (e as Error).message);
+      await err.logError();
+
+      return [];
+    }
+  }
+
   static async getCarouselItems(): Promise<Array<CarouselItem>> {
     const carouselItems: CarouselItem[] = [];
     const productHrefPrefix = process.env.PREFIX_PRODUCT_LINK ? process.env.PREFIX_PRODUCT_LINK : '/umkm/product/';

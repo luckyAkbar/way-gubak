@@ -1,3 +1,4 @@
+import { strict as assert } from 'assert';
 import dotenv from 'dotenv';
 import ProfileUMKMModel from "../models/UMKM";
 import UserRequestError from './Error/UserRequestError';

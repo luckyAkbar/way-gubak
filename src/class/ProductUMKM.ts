@@ -302,4 +302,34 @@ export default class ProductUMKM {
       throw err;
     }
   }
+
+  static async createTrendingProductsData(limitProduct: number = 10) {
+    const trendingProducts: TrendingProductItem[] = [];
+    try {
+      const allProducts = await this.getAllProducts();
+
+      for (let i = 0; i < allProducts.length; i++) {
+        const trendingProductItem: TrendingProductItem = {
+          name: allProducts[i].name,
+          currency: allProducts[i].currency,
+          price: allProducts[i].price,
+          imageAlt: allProducts[i].imageAlt,
+          imageLink: `${ProductUMKM.staticImageLinkPrefix}${allProducts[i].imageName}`,
+          UMKMName: await UMKM.getUMKMNameFromID(allProducts[i].UMKM_ID),
+          linkToProductPage: `${ProductUMKM.staticProductHrefPrefix}${allProducts[i].id}`,
+        };
+
+        trendingProducts.push(trendingProductItem);
+
+      }
+
+      return trendingProducts;
+    } catch (e: unknown) {
+      const err = new CustomError('System failed to generate trending product data. This may result in user seeing empty trending product on umkm index page', (e as Error).message);
+
+      await err.logError();
+
+      return [];
+    }
+  }
 }

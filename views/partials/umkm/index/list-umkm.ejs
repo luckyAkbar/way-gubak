@@ -1,0 +1,28 @@
+<div class="start-free-box">
+   <div class="container">
+      <div class="row">
+         <% for (let i = 0; i < UMKMList.length; i++) { %>
+            <div class="bg_img_right"><img src="images/bg_img1.png" alt="#" /></div>
+            <div class="main-start-box">
+               <div class="container">
+                  <div class="supplier clearfix">
+                     <div class="col-md-5 col-sm-6">
+                        <div class="left-supplier">
+                           <h2><%= UMKMList[i].name %></h2>
+                           <p><%= UMKMList[i].fullDescription %></p>
+                           <a href="<%= UMKMList[i].profileLink %>">Kunjungi halaman UMKM</a>
+                        </div>
+                  </div>
+                  <div class="col-md-7 col-sm-6">
+                     <div class="right-supplier">
+                        <a href="<%= UMKMList[i].profileLink %>">
+                           <img src="<%= UMKMList[i].UMKMFeaturedProductImageLink %>" alt="<%= UMKMList[i].UMKMFeaturedProductImageAlt %>" />
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <% } %>
+     </div>
+  </div>
+</div>

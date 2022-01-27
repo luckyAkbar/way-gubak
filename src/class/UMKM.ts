@@ -8,12 +8,17 @@ import UMKMPage, { ProductAttributeInList } from '../interface/pageRenderingData
 import Product from '../models/product';
 import ProductInterface from '../interface/productDetail';
 import { RecomendedProduct } from '../interface/pageRenderingData/UMKMProduct';
-import { UMKMContact } from '../interface/profileUMKM';
+import I_UMKM, { UMKMContact } from '../interface/profileUMKM';
 import BasicPage from './BasicPage';
+import UMKMIndexPageData from '../interface/pageRenderingData/UMKMIndex';
+import { UMKMListItem } from '../interface/pageResource/umkm/listUMKM';
+import ProductUMKM from './ProductUMKM';
 
 dotenv.config();
 
 export default class UMKM {
+  static UMKMProfileLinkPrefix: string = process.env.PREFIX_LINK_TOKO_UMKM ? process.env.PREFIX_LINK_TOKO_UMKM : '/umkm/';
+
   UMKM_ID: number;
   imageHrefPrefix: string | undefined;
   productLinkPrefix: string | undefined;

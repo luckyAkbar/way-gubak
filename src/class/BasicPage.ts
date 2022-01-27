@@ -10,6 +10,7 @@ dotenv.config();
 
 class BasicPage {
   static villageName: string = process.env.VILLAGE_NAME ? process.env.VILLAGE_NAME : 'Desa Pinang Jaya';
+  static copyrightYear: string = process.env.COPYRIGHT_YEAR ? process.env.COPYRIGHT_YEAR : new Date().getFullYear().toString();
 
   static async getFooterLinks(): Promise<Array<FooterLinkContent>> {
     try {

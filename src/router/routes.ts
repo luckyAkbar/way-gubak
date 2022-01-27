@@ -12,6 +12,7 @@ import UMKMProfileController from '../controller/frontend/profileUMKM';
 import detailProductUMKMController from '../controller/frontend/detailProductUMKM';
 import errorPageRenderer from '../controller/error';
 import productIndexController from '../controller/frontend/productIndex';
+import UMKMIndexController from '../controller/frontend/UMKMIndex';
 
 const router: Router = express.Router();
 
@@ -41,6 +42,9 @@ router.route('/profile/saranaPrasarana')
 
 router.route('/aset')
   .get(asetDesaController);
+
+router.route('/umkm')
+  .get(UMKMIndexController);
 
 router.route('/umkm/product')
   .get(productIndexController);

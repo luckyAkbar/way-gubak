@@ -39,7 +39,7 @@ const umkm: Schema = new mongoose.Schema<UMKM>({
     type: [String],
     required: true,
   }, // displayed as p tags for each index
-});
+}, { timestamps: true });
 
 const ProfileUMKM = mongoose.model<UMKM>('UMKM', umkm);
 

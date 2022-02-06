@@ -64,7 +64,7 @@ const product = new mongoose.Schema<ProductInterface>({
   spesifications: {
     type: [{ title: String, value: String }],
   },
-});
+}, { timestamps: true });
 
 const Product = mongoose.model<ProductInterface>('Product', product);
 

@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+      <div class="card">
+          <h5 class="card-header">Agenda Desa</h5>
+          <div class="card-body p-0">
+              <div class="table-responsive">
+                  <table class="table no-wrap p-table">
+                      <thead class="bg-light">
+                          <tr class="border-0">
+                              <th class="border-0">Nama</th>
+                              <th class="border-0">Tanggal & Waktu</th>
+                              <th class="border-0">Lokasi</th>
+                              <th class="border-0">Pembuat</th>
+                              <th class="border-0">Aksi</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                            <% listAgenda.forEach((agenda) => { %>
+                                <tr>
+                                    <td><%= agenda.title %></td>
+                                    <td><%= agenda.date %> <%= agenda.time %></td>
+                                    <td><%= agenda.location %></td>
+                                    <td><%= agenda.creatorName %></td>
+                                    <td>
+                                        <a href="/dashboard/agenda/update?agendaID=<%= agenda.id %>"><button type="button" class="btn btn-brand" data-toggle="tooltip" data-placement="bottom" title="Klik untuk edit agenda"><i class="fas fa-pencil-alt"></i></button></a>
+                                        <button type="button" class="btn btn-danger agenda" data-toggle="tooltip" data-placement="bottom" title="Klik untuk hapus agenda" value="<%= agenda.id %>"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </a>
+            </div>
+            <div class="modal-body">
+                <p>Woohoo, You are readng this text in a modal! Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                <a href="#" class="btn btn-primary">Save changes</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    const deleteAgendaCallback = async (agendaID) => {
+      try {
+          const result = await fetch('/dashboard/agenda', {
+              method: 'DELETE',
+              credential: 'include',
+              redirect: 'follow',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  agendaID,
+              }),
+          });
+
+          if (result.status !== 204) throw new Error();
+      } catch (e) {
+          throw e;
+      }
+    };
+
+    window.addEventListener('load', () => {
+        const allDeleteBtn = document.getElementsByClassName('btn btn-danger agenda');
+        for (let i = 0; i < allDeleteBtn.length; i++) {
+            allDeleteBtn[`${i}`].addEventListener('click', async () => {
+                try {
+                    await deleteAgendaCallback(allDeleteBtn[`${i}`].value);
+
+                    alert('agenda berhasil dihapus');
+                    
+                    location.reload();
+                } catch (e) {
+                    alert('agenda gagal dihapus');
+                }
+            })
+        }
+    })
+</script>

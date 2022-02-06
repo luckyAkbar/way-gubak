@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+      <div class="card">
+          <h5 class="card-header">Berita Desa</h5>
+          <div class="card-body p-0">
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead class="bg-light">
+                          <tr class="border-0">
+                              <th class="border-0">Foto</th>
+                              <th class="border-0">Judul Berita</th>
+                              <th class="border-0">Isi Berita</th>
+                              <th class="border-0">Aksi</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% listBerita.forEach((berita) => { %>
+                            <tr>
+                                <td>
+                                    <div class="m-r-10"><img src="/images/<%= berita.filename %>" alt="Foto Berita" class="rounded" width="45"></div>
+                                </td>
+                                <td><%= berita.title %></td>
+                                <td><%= berita.content %></td>
+                                <td>
+                                    <a href="/dashboard/berita/update?beritaID=<%= berita.id %>"><button type="button" class="btn btn-brand" data-toggle="tooltip" data-placement="bottom" title="Klik untuk edit agenda"><i class="fas fa-pencil-alt"></i></button></a>
+                                    <button type="button" class="btn btn-danger berita" data-toggle="tooltip" data-placement="bottom" title="Klik untuk hapus agenda" value="<%= berita.id %>"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                          <% }); %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+    const deleteBeritaCallback = async (beritaID) => {
+        try {
+            const response = await fetch('/dashboard/berita', {
+                method: 'DELETE',
+                credentials: 'include',
+                redirect: 'follow',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ beritaID }),
+            });
+
+            if (response.status !== 204) throw new Error();
+        } catch (e) {
+            throw e;
+        }
+    };
+
+    window.addEventListener('load', () => {
+        const allDeleteBeritaBtn = document.getElementsByClassName('btn btn-danger berita');
+
+        for (let i = 0; i < allDeleteBeritaBtn.length; i++) {
+            allDeleteBeritaBtn[`${i}`].addEventListener('click', async () => {
+                try {
+                    await deleteBeritaCallback(allDeleteBeritaBtn[`${i}`].value);
+
+                    alert('berita berhasil dihapus');
+
+                    location.reload();
+                } catch (e) {
+                    alert('berita gagal dihapus');
+                }
+            });
+        }
+    })
+</script>

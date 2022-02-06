@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/dashboard-assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/dashboard-assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dashboard-assets/libs/css/style.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
+    <link rel="stylesheet" href="/dashboard-assets/vendor/inputmask/css/inputmask.css" />
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <%- include('../../../partials/dashboard/navbar'); %>
+        <%- include('../../../partials/dashboard/sidebar'); %>
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-10">
+                        <!-- ============================================================== -->
+                        <!-- pageheader  -->
+                        <!-- ============================================================== -->
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="page-header" id="top">
+                                    <h2 class="pageheader-title">Berita Desa</h2>
+                                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                                    <div class="page-breadcrumb">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Berita</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="section-block" id="basicform">
+                                <h3 class="section-title">Update Berita</h3>
+                                <p>Lengkapi Formulir berikut untuk membuat berita baru.</p>
+                            </div>
+                            <div class="card">
+                                <h5 class="card-header">Formulir Berita</h5>
+                                <div class="card-body">
+                                    <form id="updateBeritaForm">
+                                        <div class="form-group">
+                                            <label for="judulBerita" class="col-form-label">Judul Berita</label>
+                                            <input id="judulBerita" type="text" class="form-control" value="<%= berita.title %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="isiBerita">Isi berita</label>
+                                            <textarea class="form-control" id="isiBerita" rows="3"><%= berita.content %></textarea>
+                                        </div>
+                                        <label for="image">Pilih gambar</label>
+                                        <input type="file" name="image" id="image" accept="image/png,image/jpg,image/jpeg">
+                                    </form>
+                                    <button class="btn btn-warning" id="updateBeritaBtn">
+                                        Update Berita
+                                    </button>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="/dashboard-assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/dashboard-assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/dashboard-assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="/dashboard-assets/libs/js/main-js.js"></script>
+    <script src="/dashboard-assets/vendor/inputmask/js/jquery.inputmask.bundle.js"></script>
+    <script>
+    $(function(e) {
+        "use strict";
+        $(".date-inputmask").inputmask("dd/mm/yyyy"),
+            $(".phone-inputmask").inputmask("(999) 999-9999"),
+            $(".international-inputmask").inputmask("+9(999)999-9999"),
+            $(".xphone-inputmask").inputmask("(999) 999-9999 / x999999"),
+            $(".purchase-inputmask").inputmask("aaaa 9999-****"),
+            $(".cc-inputmask").inputmask("9999 9999 9999 9999"),
+            $(".ssn-inputmask").inputmask("999-99-9999"),
+            $(".isbn-inputmask").inputmask("999-99-999-9999-9"),
+            $(".currency-inputmask").inputmask("$9999"),
+            $(".percentage-inputmask").inputmask("99%"),
+            $(".decimal-inputmask").inputmask({
+                alias: "decimal",
+                radixPoint: "."
+            }),
+
+            $(".email-inputmask").inputmask({
+                mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[*{2,6}][*{1,2}].*{1,}[.*{2,6}][.*{1,2}]",
+                greedy: !1,
+                onBeforePaste: function(n, a) {
+                    return (e = e.toLowerCase()).replace("mailto:", "")
+                },
+                definitions: {
+                    "*": {
+                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~/-]",
+                        cardinality: 1,
+                        casing: "lower"
+                    }
+                }
+            })
+    });
+    </script>
+    <script>
+      const updateBeritaBtn = document.getElementById('updateBeritaBtn');
+
+      const uploadImage = async (file) => {
+            const data = new FormData();
+            
+            data.append('image', file);
+
+            const response = await fetch('/upload/image', {
+                method: 'POST',
+                body: data,
+            });
+
+            if (response.status !== 202) throw new Error();
+
+            const result = await response.json();
+
+            return result.filename;
+        };
+
+      const updateBeritaRequest = async (body) => {
+        try {
+          const response = await fetch('/dashboard/berita', {
+            method: 'PUT',
+            redirect: 'follow',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+          });
+
+          if (response.status !== 202) throw new Error();
+        } catch (e) {
+          throw e;
+        }
+      }
+
+      updateBeritaBtn.addEventListener('click', async () => {
+        let filename = undefined;
+        const body = {};
+        const updateBeritaForm = document.forms['updateBeritaForm'];
+        const title = updateBeritaForm.elements['judulBerita'].value
+        const content = updateBeritaForm.elements['isiBerita'].value;
+        const [ file ] = document.querySelector('[type=file]').files;
+
+        if (file !== undefined) {
+          filename = await uploadImage(file);
+          body.filename = filename;
+        }
+
+        body.title = title;
+        body.content = content;
+        body.beritaID = '<%= berita.id %>';
+
+        try {
+          await updateBeritaRequest(body);
+
+          alert('berita berhasil diupdate');
+
+          window.location = '/dashboard';
+        } catch (e) {
+          alert('berita gagal diupdate');
+        }
+      });
+    </script>
+</body>
+ 
+</html>
+
+

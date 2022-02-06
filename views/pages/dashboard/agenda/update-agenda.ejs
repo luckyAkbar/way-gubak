@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/dashboard-assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/dashboard-assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dashboard-assets/libs/css/style.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
+    <link rel="stylesheet" href="/dashboard-assets/vendor/inputmask/css/inputmask.css" />
+</head>
+
+<body>
+    <div class="dashboard-main-wrapper">
+        <%- include('../../../partials/dashboard/navbar'); %>
+        <%- include('../../../partials/dashboard/sidebar'); %>
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-10">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="page-header" id="top">
+                                    <h2 class="pageheader-title">Agenda Desa</h2>
+                                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                                    <div class="page-breadcrumb">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Agenda</li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="section-block" id="basicform">
+                                    <h3 class="section-title">Update Agenda</h3>
+                                    <p>Isi Formulir di bawah ini untuk mengubah agenda yang anda inginkan</p>
+                                </div>
+                                <div class="card">
+                                    <h5 class="card-header">Update Agenda</h5>
+                                    <div class="card-body">
+                                        <form action="/dashboard/agenda" method="POST" id="updateAgendaForm">
+                                            <div class="form-group">
+                                                <label for="title" class="col-form-label">Judul Agenda</label>
+                                                <input id="title" type="text" class="form-control" value="<%= agenda.title %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="date">Tanggal</label>
+                                                <input id="date" type="date" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="time" class="col-form-label">Waktu</label>
+                                                <input id="time" type="time" class="form-control" placeholder="Jam agenda dimulai" max="23" min="0" value="<%= agenda.time %>">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="location" class="col-form-label">Lokasi Pelaksanaan</label>
+                                              <input id="location" type="text" class="form-control" value="<%= agenda.location %>">
+                                            </div>
+                                        </form>
+                                        <button class="btn btn-warning" id="updateBtnAgendaForm">
+                                            Update Agenda
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/dashboard-assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/dashboard-assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/dashboard-assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="/dashboard-assets/libs/js/main-js.js"></script>
+    <script src="/dashboard-assets/vendor/inputmask/js/jquery.inputmask.bundle.js"></script>
+    <script>
+    $(function(e) {
+        "use strict";
+        $(".date-inputmask").inputmask("dd/mm/yyyy"),
+            $(".phone-inputmask").inputmask("(999) 999-9999"),
+            $(".international-inputmask").inputmask("+9(999)999-9999"),
+            $(".xphone-inputmask").inputmask("(999) 999-9999 / x999999"),
+            $(".purchase-inputmask").inputmask("aaaa 9999-****"),
+            $(".cc-inputmask").inputmask("9999 9999 9999 9999"),
+            $(".ssn-inputmask").inputmask("999-99-9999"),
+            $(".isbn-inputmask").inputmask("999-99-999-9999-9"),
+            $(".currency-inputmask").inputmask("$9999"),
+            $(".percentage-inputmask").inputmask("99%"),
+            $(".decimal-inputmask").inputmask({
+                alias: "decimal",
+                radixPoint: "."
+            }),
+
+            $(".email-inputmask").inputmask({
+                mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[*{2,6}][*{1,2}].*{1,}[.*{2,6}][.*{1,2}]",
+                greedy: !1,
+                onBeforePaste: function(n, a) {
+                    return (e = e.toLowerCase()).replace("mailto:", "")
+                },
+                definitions: {
+                    "*": {
+                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~/-]",
+                        cardinality: 1,
+                        casing: "lower"
+                    }
+                }
+            })
+    });
+    </script>
+    <script>
+      const updateButton = document.getElementById('updateBtnAgendaForm');
+      const updateAgendaRequest = async (body) => {
+        try {
+          const result = await fetch('/dashboard/agenda', {
+            method: 'PUT',
+            credentials: 'include',
+            redirect: 'follow',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+          });
+
+          if (result.status !== 202) throw new Error();
+        } catch (e) {
+          throw e;
+        }
+      }
+
+      updateButton.addEventListener('click', async () => {
+        const updateForm = document.forms['updateAgendaForm'];
+        const title = updateForm.elements['title'].value;
+        const date = updateForm.elements['date'].value;
+        const time = updateForm.elements['time'].value;
+        const location = updateForm.elements['location'].value;
+
+        try {
+          await updateAgendaRequest({
+            title,
+            date,
+            time,
+            location,
+            agendaID: '<%= agenda.id %>'
+          });
+          
+          alert('Agenda berhasil diupdate');
+          window.location = '/dashboard'
+        } catch (e) {
+          alert('agenda gagal diupdate');
+        }
+      })
+    </script>
+</body>
+ 
+</html>

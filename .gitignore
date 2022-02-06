@@ -8,3 +8,4 @@ test.js
 test.ts
 *.log
 uploads/
+public_uploads/

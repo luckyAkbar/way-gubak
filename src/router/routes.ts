@@ -13,6 +13,19 @@ import detailProductUMKMController from '../controller/frontend/detailProductUMK
 import errorPageRenderer from '../controller/error';
 import productIndexController from '../controller/frontend/productIndex';
 import UMKMIndexController from '../controller/frontend/UMKMIndex';
+import createAgenda from '../controller/dashboard/createAgenda';
+import renderDashboardIndexPage from '../controller/frontend/indexDashboard';
+import getAgenda from '../controller/dashboard/getAgenda';
+import deleteAgenda from '../controller/dashboard/deleteAgenda';
+import renderUpdateAgenda from '../controller/frontend/updateAgenda';
+import updateAgenda from '../controller/dashboard/updateAgenda';
+import imageUploadHandler from '../controller/imageUploadHandler';
+import createBerita from '../controller/dashboard/createBerita';
+import imageRequestHandler from '../controller/imageRequest';
+import deleteBerita from '../controller/dashboard/deleteBerita';
+import getBerita from '../controller/dashboard/getBerita';
+import renderUpdateBeritaPage from '../controller/frontend/updateBerita';
+import updateBerita from '../controller/dashboard/updateBerita';
 
 const router: Router = express.Router();
 
@@ -43,6 +56,30 @@ router.route('/profile/saranaPrasarana')
 router.route('/aset')
   .get(asetDesaController);
 
+router.route('/upload/image')
+  .post(imageUploadHandler);
+
+router.route('/dashboard')
+  .get(renderDashboardIndexPage);
+
+router.route('/dashboard/agenda')
+  .get(getAgenda)
+  .post(createAgenda)
+  .delete(deleteAgenda)
+  .put(updateAgenda);
+
+router.route('/dashboard/berita')
+  .get(getBerita)
+  .post(createBerita)
+  .put(updateBerita)
+  .delete(deleteBerita);
+
+router.route('/dashboard/berita/update')
+  .get(renderUpdateBeritaPage);
+
+router.route('/dashboard/agenda/update')
+  .get(renderUpdateAgenda);
+
 router.route('/umkm')
   .get(UMKMIndexController);
 
@@ -54,6 +91,9 @@ router.route('/umkm/:ID')
 
 router.route('/umkm/product/:ID')
   .get(detailProductUMKMController);
+
+router.route('/images/:imageName')
+  .get(imageRequestHandler);
 
 router.route('*')
   .all((req: Request, res: Response) => {

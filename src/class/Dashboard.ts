@@ -218,7 +218,7 @@ export default class Dashboard {
 
   static async getCreatorNameFromIDs(IDs: number[]): Promise<string[]> {
     try {
-      const creatorNames: string[] = await Admin.find({
+      const creatorNames: string[] = await User.find({
         id: {
           $in: IDs,
         },

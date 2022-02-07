@@ -20,6 +20,7 @@ const beritaController = async (req: Request, res: Response): Promise<void> => {
     activateMainNavbar: 'Informasi',
     sideNavItems: await BasicPage.getInfoSideNavItems(),
     activateSideNav: 'Berita',
+    listBerita: await BasicPage.getBeritaData(true),
   };
 
   res.render('pages/berita', berita);

@@ -26,11 +26,17 @@ import deleteBerita from '../controller/dashboard/deleteBerita';
 import getBerita from '../controller/dashboard/getBerita';
 import renderUpdateBeritaPage from '../controller/frontend/updateBerita';
 import updateBerita from '../controller/dashboard/updateBerita';
+import loginHandler from '../controller/login';
+import loginPageRenderer from '../controller/frontend/loginPageRenderer';
 
 const router: Router = express.Router();
 
 router.route('/')
   .get(homeController)
+
+router.route('/login')
+  .get(loginPageRenderer)
+  .post(loginHandler);
 
 router.route('/info')
   .get(beritaController);

@@ -18,6 +18,7 @@ const loginHandler = async (req: Request, res: Response): Promise<void> => {
 
     res.status(200).cookie('loginToken', loginToken, {
       maxAge: Number(process.env.SESSION_EXPIRED_MS),
+      secure: true,
     }).redirect('/dashboard');
   } catch (e: unknown) {
     if (e instanceof UserRequestError) {

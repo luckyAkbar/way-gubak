@@ -5,6 +5,7 @@ import FooterLinkModel from '../models/frontend/footerLink';
 import ServerConfigError from './Error/ServerConfigError';
 import { MainNavbarItem } from '../interface/pageResource/navbar';
 import { SideNavItem } from '../interface/pageResource/sideNav';
+import Dashboard from './Dashboard';
 
 dotenv.config();
 
@@ -124,6 +125,38 @@ class BasicPage {
     } catch (e: unknown) {
       if (e instanceof ServerConfigError) await e.logError();
 
+      return [];
+    }
+  }
+
+  static async getAgendaData(full: boolean = false) {
+    try {
+      const agenda = await Dashboard.getAgenda();
+
+      if (agenda === null) throw new Error();
+
+      if (full) {
+        return agenda;
+      }
+
+      return agenda.slice(0, 5);
+    } catch (e: unknown) {
+      return [];
+    }
+  }
+
+  static async getBeritaData(full: boolean = false) {
+    try {
+      const berita = await Dashboard.getBerita();
+
+      if (berita === null) throw new Error();
+
+      if (full) {
+        return berita;
+      }
+
+      return berita.slice(0, 3);
+    } catch (e: unknown) {
       return [];
     }
   }

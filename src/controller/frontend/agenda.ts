@@ -20,6 +20,7 @@ const agendaController = async (req: Request, res: Response): Promise<void> => {
     navbarItems: await BasicPage.getNavbarItems(),
     sideNavItems: await BasicPage.getInfoSideNavItems(),
     activateSideNav: 'Agenda',
+    listAgenda: await BasicPage.getAgendaData(true),
   };
 
   res.render('pages/agenda', agendaPageData);

@@ -19,6 +19,8 @@ const homeController = async (req: Request, res: Response): Promise<void> => {
     footerLinks: await BasicPage.getFooterLinks(),
     navbarItems: await BasicPage.getNavbarItems(),
     activateMainNavbar: 'Beranda',
+    listAgenda: await BasicPage.getAgendaData(),
+    listBerita: await BasicPage.getBeritaData(),
   };
 
   res.status(200).render('pages/home', homepageData);

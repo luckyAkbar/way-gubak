@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/dashboard-assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/dashboard-assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dashboard-assets/libs/css/style.css">
+    <link rel="stylesheet" href="/dashboard-assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- login page  -->
+    <!-- ============================================================== -->
+    <div class="splash-container">
+        <div class="card ">
+            <div class="card-header text-center"><span class="splash-description">Mohon masukan username dan password Anda terlebih dahulu</span></div>
+            <div class="card-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" id="password" type="password" placeholder="Password">
+                    </div>
+                </form>
+                <button class="btn btn-primary btn-lg btn-block" id="loginBtn">Log in</button>
+            </div>
+        </div>
+    </div>
+    <script src="/dashboard-assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/dashboard-assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+      const loginBtn = document.getElementById('loginBtn');
+      const sendLoginRequest = async (body) => {
+        try {
+          const response = await fetch('/login', {
+            method: 'POST',
+            credentials: 'include',
+            redirect: 'follow',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+          });
+
+          if (response.status !== 200) {
+            const { message } = await response.json();
+
+            throw new Error(message);
+          }
+        } catch (e) {
+          throw e;
+        }
+      };
+
+      loginBtn.addEventListener('click', async () => {
+        const loginForm = document.forms['loginForm'];
+        const username = loginForm.elements['username'].value
+        const password = loginForm.elements['password'].value;
+
+        try {
+          if (!username || !password) throw new Error('Mohon isi password dan username Anda.');
+
+          await sendLoginRequest({ username, password});
+
+          window.location = '/dashboard';
+        } catch (e) {
+          alert(e.message);
+        }
+      });
+    </script>
+</body>
+ 
+</html>

@@ -87,15 +87,15 @@ export default class Dashboard {
 
   async getName(): Promise<string> {
     try {
-      const creatorName = await Admin.findOne({ id: this.adminID }, {
-        name: 1,
+      const creatorName = await User.findOne({ id: this.adminID }, {
+        username: 1,
         id: -1,
         _id: -1,
       });
 
       assert.notStrictEqual(creatorName, null);
 
-      return creatorName.name;
+      return creatorName.username;
     } catch (e: unknown) {
       if (e instanceof AssertionError) return '';
 

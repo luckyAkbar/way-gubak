@@ -1,46 +1,18 @@
 <section class="news pt-4">
   <div class="container-fluid">
     <div class="row pt-5">
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="/images/img-item.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title font-weight-bold">Sarana dan Prasarana</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's
-              content.
-            </p>
-            <a href="#" class="btn btn-primary rounded mt-4">Selengkapnya</a>
+      <% listBerita.forEach((berita) => { %>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid" src="/images/<%= berita.filename %>" alt="Foto Berita" style="max-height: 250px;">
+            <div class="card-body">
+              <h5 class="card-title font-weight-bold"><%= berita.title %></h5>
+              <p class="card-text"><%= berita.content.slice(0, 100) %>...</p>
+              <a href="/info" class="btn btn-primary rounded mt-4">Selengkapnya</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="/images/img-item3.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title font-weight-bold">Pertanian dan Perekonomian</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's
-              content.
-            </p>
-            <a href="#" class="btn btn-primary rounded mt-4">Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src="/images/img-item2.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title font-weight-bold">Budaya dan Pariwisata</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's
-              content.
-            </p>
-            <a href="#" class="btn btn-primary rounded mt-4">Selengkapnya</a>
-          </div>
-        </div>
-      </div>
+      <% }); %>
     </div>
   </div>
 </section>

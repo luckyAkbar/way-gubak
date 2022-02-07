@@ -1,72 +1,24 @@
 <div class="col-md-8">
-  <div class="card bg-white">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card-body">
-          <a href="">
-            <a href="">
-              <h5 class="card-title font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing.</h5>
+  <% let i = 0; %>
+  <% listBerita.forEach((berita) => { %>
+    <div class="card bg-white">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card-body">
+            <a href="/info">
+              <a href="">
+                <h5 class="card-title font-weight-bold"><%= berita.title %></h5>
+              </a>
             </a>
-          </a>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusantium, rerum repellat
-            tenetur
-            nobis maiores.</p>
+            <p><%= berita.content %></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div id="img-1" class="img-item">
+            <img src="/images/<%= berita.filename %>" alt="" style="width: 100%;">
+          </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div id="img-1" class="img-item"></div>
-        <style>
-          #img-1{
-            background-image: url('/images/img-item.jpg'); 
-          }
-        </style>
-      </div>
     </div>
-  </div>
-
-  <div class="card bg-white">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card-body">
-          <a href="">
-            <h5 class="card-title font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing.</h5>
-          </a>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusantium, rerum repellat
-            tenetur
-            nobis maiores.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div id="img-2" class="img-item"></div>
-        <style>
-          #img-2{
-            background-image: url('/images/img-item2.jpg'); 
-          }
-        </style>
-      </div>
-    </div>
-  </div>
-
-  <div class="card bg-white">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="card-body">
-          <a href="">
-            <h5 class="card-title font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing.</h5>
-          </a>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusantium, rerum repellat
-            tenetur
-            nobis maiores.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div id="img-3" class="img-item"></div>
-        <style>
-          #img-3{
-            background-image: url('/images/img-item3.jpg'); 
-          }
-        </style>
-      </div>
-    </div>
-  </div>
+  <% }); %>
 </div>

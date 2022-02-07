@@ -4,27 +4,13 @@
       <h5 class="font-weight-bold pt-2 pb-3">Agenda <%= villageName %></h5>
     </div>
     <div class="card-body">
-      <a href="">
-        <h6 class="card-title font-weight-bolder">Lelangan Tanah Kas Desa MT.2018</h6>
-      </a>
-      <p class="text-secondary mb-4">Selasa, 22 September 2018 (Jam 10:00)</p>
-      <a href="">
-        <h6 class="card-title font-weight-bolder">Upacara di Halaman Kecamatan Pakaian KORPRI</h6>
-      </a>
-      <p class="text-secondary mb-4">Senin, 21 September 2018 (Jam 08:00)</p>
-      <a href="">
-        <h6 class="card-title font-weight-bolder">Upacara di Halaman Kecamatan Pakaian KORPRI</h6>
-      </a>
-      <p class="text-secondary mb-4">Senin, 21 September 2018 (Jam 07:00)</p>
-      <a href="">
-        <h6 class="card-title font-weight-bolder">Musrenbangdes di Balai Desa</h6>
-      </a>
-      <p class="text-secondary mb-4">Sabtu, 18 September 2018 (Jam 09:00)</p>
-      <a href="">
-        <h6 class="card-title font-weight-bolder">Musrenbangdes di Balai Desa</h6>
-      </a>
-
-      <button class="btn btn-primary btn-sm btn-custom mt-4">Selengkapnya</button>
+      <% listAgenda.forEach((agenda) => { %>
+        <a href="#">
+          <h6 class="card-title font-weight-bolder"><%= agenda.title %></h6>
+          <p class="text-secondary mb-4"><%= agenda.date %> <%= agenda.location %> (Jam <%= agenda.time %>)</p>
+        </a>
+      <% }); %>
+      <!-- <button class="btn btn-primary btn-sm btn-custom mt-4">Selengkapnya</button> -->
     </div>
   </div>
 </div>

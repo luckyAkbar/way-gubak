@@ -4,7 +4,7 @@ import CustomError from './Error/CustomError';
 import IAgenda from '../interface/agenda';
 import Agenda from '../models/agenda';
 import UserRequestError from './Error/UserRequestError';
-import Admin from '../models/admin';
+import User from '../models/user';
 import { AgendaComponent } from '../interface/pageResource/dashboard/listAgenda';
 import Berita from '../models/berita';
 import IBerita from '../interface/berita';

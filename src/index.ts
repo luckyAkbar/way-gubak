@@ -12,6 +12,7 @@ server.listen(port, async (): Promise<void> => {
     await mongoConnect();
     process.stdout.write(`process starting on port ${port}\n`);
   } catch (e: unknown) {
+    console.log(e);
     process.stdout.write('Server failed to start.\n');
   }
 });

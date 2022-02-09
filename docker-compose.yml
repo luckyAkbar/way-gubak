@@ -4,6 +4,6 @@ services:
   web-app:
     build: .
     ports:
-      - 3000:3000
+      - 30000:30000
     volumes:
       - ./public_uploads:/app/uploads

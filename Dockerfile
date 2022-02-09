@@ -11,5 +11,5 @@ RUN npm run build
 WORKDIR ./build
 COPY . ./
 
-EXPOSE 3000
+EXPOSE 30000
 CMD ["node", "index.js"]

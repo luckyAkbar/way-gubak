@@ -86,18 +86,6 @@ router.route('/dashboard/berita/update')
 router.route('/dashboard/agenda/update')
   .get(renderUpdateAgenda);
 
-router.route('/umkm')
-  .get(UMKMIndexController);
-
-router.route('/umkm/product')
-  .get(productIndexController);
-
-router.route('/umkm/:ID')
-  .get(UMKMProfileController);
-
-router.route('/umkm/product/:ID')
-  .get(detailProductUMKMController);
-
 router.route('/images/:imageName')
   .get(imageRequestHandler);
 

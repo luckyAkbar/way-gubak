@@ -4,6 +4,6 @@ services:
   way-gubak-web-app:
     image: luckyakbar1029/way-gubak
     ports:
-      - 30000:30000
+      - 4000:30000
     volumes:
       - ./public_uploads:/app/uploads

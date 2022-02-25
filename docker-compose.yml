@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  web-app:
-    build: .
+  way-gubak-web-app:
+    image: luckyakbar1029/way-gubak
     ports:
       - 30000:30000
     volumes:
